@@ -1,4 +1,5 @@
 title: "How To Guides"
 author: "NW"
 description: "Let's see if this description in the config file is ever printed"
-theme: jekyll-theme-minimal
+#theme: jekyll-theme-minimal
+remote_theme: poole/hyde

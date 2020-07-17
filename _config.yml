@@ -1,5 +1,18 @@
+# theme docs: https://pmarsceill.github.io/just-the-docs/docs/configuration/
+
 title: "How To Guides"
 author: "NW"
 description: "Let's see if this description in the config file is ever printed"
 #theme: jekyll-theme-minimal
-remote_theme: poole/hyde
+#remote_theme: "mmistakes/minimal-mistakes@4.19.3"
+remote_theme: "pmarsceill/just-the-docs"
+
+color_scheme: "light" #"dark"
+search_enabled: false
+
+# Back to top link : is this working?
+back_to_top: true
+back_to_top_text: "Back to top"
+
+#plugins:
+#  - jekyll-include-cache

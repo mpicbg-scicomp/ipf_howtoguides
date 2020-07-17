@@ -1,3 +1,7 @@
+---
+title: Custom Blobs title
+---
+
 # Blobs Analysis Guide
 empty void blobs
 

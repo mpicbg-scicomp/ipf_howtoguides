@@ -1,18 +1,21 @@
-# theme docs: https://pmarsceill.github.io/just-the-docs/docs/configuration/
+title: "Image Processing How-To Guides"
+author: "Noreen Walker"
+description: "Step-by-step instructions for common image processing tasks" # does this get printed?
 
-title: "How To Guides"
-author: "NW"
-description: "Let's see if this description in the config file is ever printed"
 #theme: jekyll-theme-minimal
-#remote_theme: "mmistakes/minimal-mistakes@4.19.3"
 remote_theme: "pmarsceill/just-the-docs"
 
-color_scheme: "light" #"dark"
-search_enabled: false
+# for configuration options see: https://pmarsceill.github.io/just-the-docs/docs/configuration/
 
-# Back to top link : is this working?
+color_scheme: "light" #"dark"
+
+search_enabled: false #TODO
+
+footer_content: " Copyright &copy; 2020 Scientific Computing Facility, MPI-CBG"
+
 back_to_top: true
 back_to_top_text: "Back to top"
+
 
 #plugins:
 #  - jekyll-include-cache

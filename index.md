@@ -1,16 +1,12 @@
-<!-- it seems like this page is automatically excluded from the side bar so yaml below is not necessary
----
-nav_exclude: true
---- 
--->
-
-
-# Summary
+## About
 {: .no_toc }
-[Button Link to webpage](http://example.com/){: .btn} <!--# .btn-blue-->
-[Button Link to different section](#last-header){: .btn }
 
-[normal link to different section](#last-header)
+This page collects How-To guides for common image processing and analysis tasks.
+It is written by the [Scientific Computing Facility](https://www.mpi-cbg.de/services-facilities/core-facilities/scientific-computing-facility/service-portfolio-overview/) at the MPI-CBG. 
+
+The list is continuously growing, so if you think that a topic is missing or have another question feel free to get in touch.
+
+[Contact us](https://www.mpi-cbg.de/services-facilities/core-facilities/scientific-computing-facility/service-portfolio-overview/){: .btn} <!--# .btn-blue-->
 
 ## Table of contents
 {: .no_toc }
@@ -18,26 +14,23 @@ nav_exclude: true
 1. TOC
 {:toc}
 
-## Subheader
-some random bla here
+## Fiji
 
-## and another header
-* aaaa
-* bbbb
-* cccc
+|  |   <!-- optional. enforces correct rendering in markdown (this+next line), not needed for gitpages-->
+| ------------- | ------- |
+| [Open large data](guides/Fiji_OpenLargeData.md)  | ![](pics/FluorescentCells.png) 
+| [Test Page Blobs Guide](guides/TestPage_Guide_Blobs.md)  | <img src="pics/blobs.png" width="100"> 
 
-| Tables        | Images |
-| ------------- | -------|
-| [Guide Fluo](guides/GuideFluo.md)  | ![](pics/FluorescentCells.png)
-| [Guide Blobs](guides/GuideBlobs.md)  | ![](pics/blobs.png)
-| [Guide Mini](guides/GuideMini.md)  | ![](pics/smallcrop.png)
-| width="100" | <img src="pics/FluorescentCells.png" width="100">
-| align="right" width="100" | <img src="pics/FluorescentCells.png" align="right" width="100">
 
-## last header
+## Ilastik
+... still coming ...
 
-* just
-* some
-* random
-* text
+## Imaris
+... still coming ...
 
+
+## Links and Resources
+* [Our teaching material](https://git.mpi-cbg.de/scicomp/bioimage_team/coursematerialimageanalysis)
+* [Wiki of our facility (account required)](https://wiki.mpi-cbg.de/scicomp/Main_Page)
+	* Includes information on how to access licensed software like Huygens and Imaris.
+* For more processing guides also check out the [core facilities at University of Zurich](https://zmb.dozuki.com/c/Image_Analysis#main) from where we got inspiration for this page.

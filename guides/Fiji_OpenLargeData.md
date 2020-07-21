@@ -54,7 +54,7 @@ The [BigDataViewer](https://imagej.net/BigDataViewer) ("BDV") is very useful for
 * Define a save name, press OK, then wait until export is done.
 * Open the resaved image with BigDataViewer: *Plugins > BigDataViewer > Open XML/HDF5*.
 
-#### Quick usage instructions for BDV
+#### **Quick usage instructions for BDV**
 BDV window must be selected for steps below:
 * For help on navigation, bookmarking etc: *Help > Show Help*.
 * To change channel brightness and color: *Settings > Brightness & Color*.
@@ -64,7 +64,7 @@ BDV window must be selected for steps below:
 
 For detailed instructions check the [BigDataViewer webpage](https://imagej.net/BigDataViewer). 
 
-#### Troubleshooting and more options
+#### **Troubleshooting and more options**
 * If the export to XML/HDF5 causes trouble (is very slow), try exporting with the [BigStitcher](https://imagej.net/BigStitcher) toolbox:
 	* *Prerequisite: **BigStitcher** Update site is activated.*
 	* Select *Plugins > BigStitcher > Batch Processing > Define Dataset ...*

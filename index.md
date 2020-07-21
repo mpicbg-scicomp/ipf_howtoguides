@@ -18,8 +18,8 @@ The list is continuously growing, so if you think that a topic is missing or hav
 
 |  |   <!-- optional. enforces correct rendering in markdown (this+next line), not needed for gitpages-->
 | ------------- | ------- |
-| [Open large data](guides/Fiji_OpenLargeData.md)  | ![](pics/FluorescentCells.png) 
-| [Test Page Blobs Guide](guides/TestPage_Guide_Blobs.md)  | <img src="pics/blobs.png" width="100"> 
+| [Open Large Data](guides/Fiji_OpenLargeData.md)  | <img src="guides/pics/mainpage/largedata_preview.png" width="100">  
+| [Test Page Blobs Guide](guides/TestPage_Guide_Blobs.md)  | <img src="guides/pics/mainpage/blobs_preview.png" width="100"> 
 
 
 ## Ilastik

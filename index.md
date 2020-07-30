@@ -2,11 +2,8 @@
 {: .no_toc }
 
 This page collects How-To guides for common image processing and analysis tasks.
-It is written by the [Scientific Computing Facility](https://www.mpi-cbg.de/services-facilities/core-facilities/scientific-computing-facility/service-portfolio-overview/) at the MPI-CBG. 
+It is written by the [Scientific Computing Facility](https://www.mpi-cbg.de/services-facilities/core-facilities/scientific-computing-facility/service-portfolio-overview/) at the MPI-CBG. If you have any questions or further ideas what guides to add just [contact us](https://www.mpi-cbg.de/services-facilities/core-facilities/scientific-computing-facility/service-portfolio-overview/).
 
-The list is continuously growing, so if you think that a topic is missing or have another question feel free to get in touch.
-
-[Contact us](https://www.mpi-cbg.de/services-facilities/core-facilities/scientific-computing-facility/service-portfolio-overview/){: .btn} <!--# .btn-blue-->
 
 ## Table of contents
 {: .no_toc }
@@ -15,12 +12,26 @@ The list is continuously growing, so if you think that a topic is missing or hav
 {:toc}
 
 ## Fiji
-
-|  |   <!-- optional. enforces correct rendering in markdown (this+next line), not needed for gitpages-->
-| ------------- | ------- |
-| [Open Large Data](guides/Fiji_OpenLargeData.md)  | <img src="guides/pics/mainpage/largedata_preview.png" width="100">  
-| [Test Page Blobs Guide](guides/TestPage_Guide_Blobs.md)  | <img src="guides/pics/mainpage/blobs_preview.png" width="100"> 
-
+<table>
+<tbody>
+  <tr align="center" valign="top"> 
+     <td> 	<!-- row 1, column 1 -->
+	 <a href="guides/Fiji_OpenLargeData">Open Large Data</a> <br><br> 
+	<img src="guides/pics/mainpage/largedata_preview.png" width="100"> <br>
+	</td>
+    <td>  <!-- row 1, column 2 -->
+	 <a href="guides/Template_Page">Template for new pages</a> <br> <br>
+	<img src="guides/pics/mainpage/blobs_preview.png" width="100"> <br>
+	</td> 
+    <td></td> <!-- row 1, column 3 -->
+  </tr>
+  <tr align="center" valign="top">
+    <td> </td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
 
 ## Ilastik
 ... still coming ...

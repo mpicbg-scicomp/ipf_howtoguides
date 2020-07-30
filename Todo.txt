@@ -1,0 +1,2 @@
+* make a UpdateFiji Guide, and an ilastik guide
+* add to Readme.md:  how to build locally, style doc link 

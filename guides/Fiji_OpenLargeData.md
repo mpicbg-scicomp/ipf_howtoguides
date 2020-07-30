@@ -1,4 +1,6 @@
 # Open Large Data
+{: .d-inline-block }
+
 Fiji 
 {: .label .label-green }
 
@@ -75,6 +77,6 @@ For detailed instructions check the [BigDataViewer webpage](https://imagej.net/B
 
 
 ## Alternatives
-#### Imaris
+#### **Imaris**
 * Imaris can handle large data automatically. When opening your data in Imaris for the first time it gets automatically converted (copied) to the proprietary *.ims* format. This is a hierarchical data format which allows for responsive viewing of large data.
 

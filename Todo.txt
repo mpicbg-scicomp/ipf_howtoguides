@@ -1,2 +1,3 @@
-* make a UpdateFiji Guide, and an ilastik guide
-* add to Readme.md:  how to build locally, style doc link 
+* make  an ilastik guide
+* add to Readme.md:  how to build locally, style doc link ,
+also features that are useful but not used right now: custom header, buttons

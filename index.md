@@ -16,14 +16,18 @@ It is written by the [Scientific Computing Facility](https://www.mpi-cbg.de/serv
 <tbody>
   <tr align="center" valign="top"> 
      <td> 	<!-- row 1, column 1 -->
-	 <a href="guides/Fiji_OpenLargeData">Open Large Data</a> <br><br> 
-	<img src="guides/pics/mainpage/largedata_preview.png" width="100"> <br>
+	 <a href="guides/Fiji_KeepUpToDate">Keep Fiji Up-To-Date</a> <br> <br>
+	<img src="guides/pics/mainpage/updater_preview.png" width="100"> <br>
 	</td>
     <td>  <!-- row 1, column 2 -->
-	 <a href="guides/Template_Page">Template for new pages</a> <br> <br>
+	 <a href="guides/Fiji_OpenLargeData">Open Large Data</a> <br><br> 
+	<img src="guides/pics/mainpage/largedata_preview.png" width="100"> <br>
+	</td> 
+    <td> <!-- row 1, column 3 -->
+	<a href="guides/Template_Page">Template for new pages</a> <br> <br>
 	<img src="guides/pics/mainpage/blobs_preview.png" width="100"> <br>
 	</td> 
-    <td></td> <!-- row 1, column 3 -->
+
   </tr>
   <tr align="center" valign="top">
     <td> </td>

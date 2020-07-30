@@ -8,6 +8,8 @@ Fiji/Imaris/Ilastik
 ## Introduction
 Brief summary, motivation and or tips here.
 
+**Tip**: an optional tip here.
+
 ## Step-by-step
 A step by step guide with screenshots. Example snippet taken from the "open large data" guide:
 

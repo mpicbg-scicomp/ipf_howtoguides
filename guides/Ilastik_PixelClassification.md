@@ -16,7 +16,7 @@ Ilastik provides **multiple workflows**:
 * Density counting
 * Semi-manual 3D carving
 
-This how-to guide is about **pixel classification** which is used for segmenting images. The user labels several regions in the image interactively with a brush tool. Based on the features of these labelled regions (intensity, gradient, etc.) the software then learns to predict the segmentation for the rest of the image. A random forest classifier is used in the background to learn the prediction from the labels.
+This how-to guide is about **pixel classification** which is used for **image segmentation**. The user labels several regions in the image interactively with a brush tool. Based on the features of these labelled regions (intensity, gradient, etc.) the software then learns to predict the segmentation for the rest of the image. A random forest classifier is used in the background to learn the prediction from the labels.
 
 For a full documentation of Ilastik please see the [Online Ilastik Documentation](https://www.ilastik.org/documentation/index.html).
 

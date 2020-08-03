@@ -1,7 +1,7 @@
 # About
 Repository for IPF How-To Guides webpage.
 
-Page is displayed at: https://walkernoreen.github.io/ipfguides/
+Page is displayed at: https://mpicbg-scicomp.github.io/ipf_howtoguides/
 
 
 # Contribute

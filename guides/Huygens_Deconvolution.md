@@ -29,6 +29,9 @@ This how-to guide is about a basic deconvolution pipeline using **HuygensPro**.
 > *On Windows, Remote Desktop Client / Connection is installed by default.* <br>
 > *On Mac, you need to download and install MRD version 8 or 10 from [here](https://www.techspot.com/downloads/4698-microsoft-remote-desktop-for-mac.html).*
 
+### Step 0: Upload data to process
+TODO
+
 ### Step 1: Accessing HuygensPro
 * The Huygens software runs on a linux server and can be accessed remotely from your own laptop.
 * Book Huygens using the booking database and then use (needs user account)! 
@@ -72,7 +75,7 @@ This how-to guide is about a basic deconvolution pipeline using **HuygensPro**.
 
 * Main sections:
    * The blue region is where you will find the thumbnails of all the opened images. 
-   * On the top, you see a ribbon menu, with icons to launch main functions such as deconvolution (*Decon*) and batch processing (*Batch Express*).
+   * On the top, is a task bar, with icons to launch main functions such as deconvolution (*Decon*) and batch processing (*Batch Express*).
    * On the right, the window with multiple tabs gives you information related to the currently selected image. 
 
 <img src="pics/huygens_deconvolution/huygens_2_mainwindowannotated.png" width="400">
@@ -166,11 +169,209 @@ This how-to guide is about a basic deconvolution pipeline using **HuygensPro**.
 **Tip 2**: Huygens uses different background colors and the *Reports* window, to give you feedback about issues with your imaging settings or parameters.   
 
 ### Step 6: Deconvolution wizard
+* Right-click on the image and select *Deconvolution Wizard*. Alternative: *Deconvolution > Deconvolution Wizard* or *Decon* icon on the task bar.
+
+<img src="pics/huygens_deconvolution/huygens_6_launchdeconwizard.png" width="400">
+
+* On the start window of the wizard, you can see a summary of the previously defined paramaters. 
+* The *Wizard status* window shows current status, warnings, etc.
+
+<img src="pics/huygens_deconvolution/huygens_6_deconwizardstart.png" width="400">
+
+* Check if the parameters are correct and click on *Enter wizard*.
+
+### Step 6a: Deconvolution wizard: PSF selection
+TODO
 
 
- 
+### Step 6b: Deconvolution wizard: Cropping
+* Crop the 3D stack manually by using the *Launch the Cropper* option. 
+
+> *The time needed to deconvolve an image increases more than proportionally with its volume.* <br>
+> *Cropping helps to accelerate the process.*
+
+<img src="pics/huygens_deconvolution/huygens_6b_launchcropper.png" width="400">
+
+* Alternatively, one can also use the *Auto crop* to let Huygens automatically detect a suitable region of interest.
+* In the pop-up window, set the region of interest by adjusting the boundaries of the bounding box.
+* Press on *Crop* on the bottom right of the window.
+
+<img src="pics/huygens_deconvolution/huygens_6b_cropper.png" width="400">
+
+* Press *Next* (--->).
+
+### Step 6c: Deconvolution wizard: Select channel
+* If you have more than one channel in your dataset, you will need to deconvolve them sequentially.
+* On the left, you will see all the channels of your dataset.
+
+<img src="pics/huygens_deconvolution/huygens_6c_selectchannel.png" width="400">
+
+* Select the first channel from the drop-down menu on the right and press *Next*.
+
+### Step 6d: Deconvolution wizard: Inspecting the image histogram
+* In this step, you will calculate and inspect the image intensity histogram of the selected channel.
+* Select *Logarithmic* and click *Compute*.
+
+<img src="pics/huygens_deconvolution/huygens_6d_computehistogram.png" width="400">
+
+* Huygens computes the histogram and displays it on the window next to the image.
+* Huygens also provides important information on the intensity distribution.
+
+<img src="pics/huygens_deconvolution/huygens_6d_histogram.png" width="400">
+
+* Inspect the histogram and the report before proceeding.
+
+> *A tall peak on the extreme right of the histogram indicates clipping or saturation.* <br>
+> *Clipping occurs when input signals that are too high, are mapped to the highest value available by the CCD camera.* <br>
+> *A tall peak on the very left of the histogram also indicates clipping, here the negative input signals are mapped to zero.* <br>
+> *There can also be an offset at the left of the histogram indicating a positive blacklevel. This does not affect the deconvoluton results.* <br>
+
+**Tip 1**: Save images as 16-bit to avoid clipping. 
+
+**Tip 2**: Avoid deconvolution if there are large regions of saturated pixels. Check and make changes to your image acquisition settings. 
 
 
+### Step 6e: Deconvolution wizard: Background estimation
+* Estimate the background intensity of the channel. 
+* There are two modes: *Automatic estimation* and *Manual mode.*
+* It is **recommended to use** ***Automatic estimation***.
+
+> *Confocal: set Estimation mode to 'Lowest'* <br>
+> *Widefield: set Estimation mode to 'In/Near Object'*
+
+<img src="pics/huygens_deconvolution/huygens_6e_backgroundestimation.png" width="400">
+
+* Set the *Estimation mode* and click on *Auto.*
+* To provide a background value with manual measurement, click on *Manual*.
+
+<img src="pics/huygens_deconvolution/huygens_6e_manualbackground.png" width="400">
+
+* Follow the instructions mentioned, enter the measured value in the *Background value* and click on *Accept*.
+
+**Tip**: Use **Auto** mode for background estimation. 
+
+### Step 6f: Deconvolution wizard: Select deconvolution algorithm
+* If the *Auto* mode for background estimation was used, you will find the results here.
+* Select the *Deconvolution algorithm* to be used.
+
+> *CMLE(Classic Maximum Likelihood Estimation): Robust, default method.* <br>
+> *GMLE(Good’s roughness Maximum Likelihood Estimaion): Good for high-noise images. Uses more memory than CMLE* <br>
+> *QMLE(Quick Maximum Likelihood Estimation): Fast, good for low-noise images.* <br>
+
+<img src="pics/huygens_deconvolution/huygens_6f_deconvolutionalgorithm.png" width="400">
+
+* Check the background estimate, select the deconvolution algorithm and click *Accept*.
+
+**Tip**: **CMLE is generally recommended** for almost all kinds of images.  
+
+### Step 6g: Deconvolution wizard: Setup deconvolution parameters
+* The most important parameter that controls the deconvolution results is the Signal-to-Noise Ratio (SNR.)
+* The SNR determines the sharpness of the restoration result.
+
+> *SNR too low: harmless but no sharpening* <br>
+> *SNR too high: causes artifacts* <br>
+> *Noise-free widefield image: SNR approx. > 50* <br>
+> *Noisy confocal image: SNR approx. 15-20*
+
+<img src="pics/huygens_deconvolution/huygens_6g_snr.png" width="400">
+
+* Adjust the *SNR* value.
+* For the others, the defaults are set according to the image parameters and require no adjustments.
+
+**Tip 1**: Check the [Huygens page](https://svi.nl/SignalToNoiseRatio) for more details.
+
+### Step 6h: Deconvolution wizard: Preview and deconvolution
+* Use the *Deconvolution preview* to check the results of current deconvolution parameters.
+
+<img src="pics/huygens_deconvolution/huygens_6h_deconvolutionlaunchpreview.png" width="400">
+
+* The progress is visible in the *Reports* window on the left.
+* In the image window, you can now see a yellow box which previews the result of deconvolution.
+
+<img src="pics/huygens_deconvolution/huygens_6h_deconvolutionpreview.png" width="400">
+
+* You can move the box around to check the deconvolution preview from diffrent regions.
+
+> *Check for artifacts. If seen, reduce the SNR and test the preview again.* <br>
+> *If there is hardly any change in contrast, increase the SNR and run the preview.*
+
+* If the preview looks good, click *Deconvolve*. This will start the deconvolution of the active channel.
+
+**Tip**: Use different SNRs (20, 40, 50, 60) and perform deconvolution. Check the results and select the SNR which improves sharpness without enhancing noise.
+
+### Step 6i: Deconvolution wizard: Deconvolution result
+* When the deconvolution of your channel is done, you can see a preview of the result in the *Deconvolution result* step.
+* Click *Accept, to next channel* to deconvolve the next channel of your dataset.
+
+<img src="pics/huygens_deconvolution/huygens_6i_nextchannel.png" width="400">
+
+* For the next channel, the wizard starts at **Step 6c**.
+* Perform a deconvolution for all channels of your dataset.
+* After deconvolution of the last channel click *All done*.
+
+<img src="pics/huygens_deconvolution/huygens_6i_alldone.png" width="400">
+
+
+### Step 6j: Deconvolution wizard: Select the results
+* You can merge the deconvolved images with the original images here.
+
+<img src="pics/huygens_deconvolution/huygens_6j_deconvolutionresults.png" width="400">
+
+* The deconvolved images are added as additional channels to the original image.
+* Leave at default and click *Next*.
+
+### Step 6k: Deconvolution wizard: Summary
+* In the last step you can save your deconvolution parameters as a template. 
+
+> *Useful if you plan to deconvolve multiple datasets of the same type.*
+
+* Click *Done* to close the deconvolution wizard and return to the main window.
+
+<img src="pics/huygens_deconvolution/huygens_6k_summary.png" width="400">
+
+* Alternatively, click on *Twin Slicer* icon to close the wizard and export the results directly for exploration.
+
+> *One can also go to other the postprocessing steps such as Chromatic Aberration correction by clicking relevant icons.*
+
+### Step 6l: Explore your results
+* If you clicked *Done* in the previous step, you will return to the main window where you will see a new image thumbnail of the deconvolution result.
+* Right-click on the thumbnail and select *Twin Slicer*.
+
+<img src="pics/huygens_deconvolution/huygens_6l_exploreresults.png" width="400">
+
+* Use the drop-down menu to select your raw dataset on the left and deconvolved dataset on the right.
+* Compare the deconvolution result with the raw dataset.
+
+### Step 6m: Saving your results
+* **Do not forget to save images** before closing Huygens.
+* Right-click the result image thumbnail and select *Save As*.
+
+> *Recommended file-formats for saving: ICS2, TIFF 16-bit.*
+
+<img src="pics/huygens_deconvolution/huygens_6m_saveresult.png" width="400">
+
+* A *Question* dialog asks you how you want to save your files. Usually *One per channel* is sufficient.
+
+<img src="pics/huygens_deconvolution/huygens_6m_savequestion.png" width="400">
+
+* Depending on the choosen file format and the intensities in your data, Huygens might also ask about the conversion mode.
+
+> *Contrast stretch: good for visualization purposes and further analysis such as colocalization* <br>
+> *Linked scale: use if you plan to perform ratiometric analysis.*
+
+<img src="pics/huygens_deconvolution/huygens_6m_contrastmode.png" width="400">
+
+**Tip**: Check the [Huygens webpage](https://svi.nl/TiffScaling) for more details on saving images as TIFF.
+
+### Step 7: Quit Huygens
+* Quit Huygens after usage by *File > Quit*.
+
+### Step 8: Logout
+* Once you quit Huygens, you will return to the desktop of the remote machine.
+* **Do not shutdown the computer**.
+* Safely logout from the system using the ***drop-down next to the power button*** *> lmfuser > Log out*.
+
+<img src="pics/huygens_deconvolution/huygens_8_logout.png" width="400">
 
 
 ## Alternatives

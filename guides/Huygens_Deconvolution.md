@@ -73,7 +73,7 @@ We divide the steps into 2 sections - before deconvolution and how to run deconv
 	* In the menu bar click on *Go* and select *Connect to Server...⌘K* 
 	* Type `smb://lmfuser@huygens-srv1.mpi-cbg.de/UserData`
 	* Click *Connect*.
-* Windows users
+* Windows users:
 	* Open the *Explorer* (not Internet Explorer).
 	* In the path bar type `\\lmfuser@huygens-srv1.mpi-cbg.de\UserData`.
 	* Press enter. 

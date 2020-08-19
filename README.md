@@ -23,7 +23,7 @@ Page is displayed at: https://mpicbg-scicomp.github.io/ipf_howtoguides/
 #### Build page with jekyll
 * Setup instructions: https://docs.github.com/en/github/working-with-github-pages/testing-your-github-pages-site-locally-with-jekyll and https://docs.github.com/en/github/working-with-github-pages/creating-a-github-pages-site-with-jekyll
 * Instructions are roughly (to be improved) ([see here](https://jekyllrb.com/docs/installation/macos/)):
-	* Install `ruby` (if not yet installed, should be installed by default on a MacOS)
+	* Install `ruby` ([if not yet installed](https://stackify.com/install-ruby-on-your-mac-everything-you-need-to-get-going/), should be installed by default on a MacOS)
 	* Install `bundler` and `jekyll`
 * To serve the page:
 	* go to root folder of your repository and type: `bundle exec jekyll serve`

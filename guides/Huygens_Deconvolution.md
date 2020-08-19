@@ -22,32 +22,92 @@ For more details on deconvolution check the [documentation from Huygens](https:/
 
 This how-to guide is about a basic deconvolution pipeline using **HuygensPro**. 
 
-
 ## Step-by-step
+We divide the steps into 2 sections - before deconvolution and how to run deconvolution using HuygensPro.
+
+**Note**: Some of the steps are specific to MPI-CBG infrastructure and commented with the following notations.
+
+***CBG network***: Requires to be connected to the internal CBG network. If working from a different network, connect via VPN. <br>
+***Login required***: Requires login. Contact [IPF](mailto:ipf@mpi-cbg.de) for details.
+
+## Section 1: Prior to Deconvolution
+### Step 1: Data Acquisition
+* Deconvolution is an important pre-requisite if you plan to do shape and size measurements, and colocalization.
+* The data acquisition plays an important role if you need good deconvolution results.
+* General rule of thumb: **give importance to sampling than signal**, i.e. noise is acceptable but not undersampling.
+* If you plan to use measured PSF, make sure to acquire fluorescent bead images as well.
+
+#### **General guidelines**
+* **Sampling**
+   * Make sure you sample your data well especially in Z. Use the [Sampling calculator](https://svi.nl/NyquistCalculator) to get the ideal Nyquist sampling rate.
+
+	> *Confocal: up to 40% undersampling is acceptable as compared to the ideal sampling.* <br>
+	> *Widefield: stick to the ideal sampling rate as much as possible.*
+
+   * Z-stack range: image till the edge of the object + ½ PSF above and below sample. Especially important for Widefield. 
+* **Saturation and clipping**
+	* Accept noise. Noise is handled by Huygens very well.
+	* Avoid saturating your image, the image does not have to look pretty!
+	
+	> *LSM acquisition: use accumulation or photon count instead of averaging.*
+	
+* **Metadata**
+	* Save all the raw image metadata.
+	* Save images with proper bit depth, 16-bit is mostly sufficient.
+* We cannot perform deconvolution if:
+	* the volume is 2x undersampled, and/or
+	* image is heavily saturated or clipped. 
+
+**Tip 1**: Check the [Huygens webpage](https://svi.nl/AcquisitionPitfalls) for more details on proper image acquisition.
+
+**Tip 2**: Talk to your microscopists before deconvolution, involve the image analysts as well.
+
+### Step 2: Upload data to process
+* After proper data acquisition, the raw data from your hard disk or fileserver has to be transferred to our Huygens computer for processing.
+
+>*CBG network*<br>
+>*Login required*
+
+* Mac users:
+	* Start *Finder*. 
+	* In the menu bar click on *Go* and select *Connect to Server...⌘K* 
+	* Type `smb://lmfuser@huygens-srv1.mpi-cbg.de/UserData`
+	* Click *Connect*.
+* Windows users
+	* Open the *Explorer* (not Internet Explorer).
+	* In the path bar type `\\lmfuser@huygens-srv1.mpi-cbg.de\UserData`.
+	* Press enter. 
+* Enter the login credentials.
+* Once connected, navigate to the folder named *UsersDataFolders*.
+* Create a folder of your name.
+* Copy **only** the data that needs to be processed to this folder.
+* **After performing deconvolution, make sure to transfer back the data to your local machine or project space.**
+
+## Section 2: Deconvolution using Huygens
 
 > *Prerequisite: Download and install Microsoft Remote Desktop* <br>
 > *On Windows, Remote Desktop Client / Connection is installed by default.* <br>
 > *On Mac, you need to download and install MRD version 8 or 10 from [here](https://www.techspot.com/downloads/4698-microsoft-remote-desktop-for-mac.html).*
 
-### Step 0: Upload data to process
-TODO
-
 ### Step 1: Accessing HuygensPro
 * The Huygens software runs on a linux server and can be accessed remotely from your own laptop.
-* Book Huygens using the booking database and then use (needs user account)! 
+* Book Huygens using the booking database.  
    * The booking database can be reached with this link: [LMF Booking System](https://python-srv1.mpi-cbg.de/lmf-ipf/cgi-bin/index.py). 
+> *Login required*
+
    * The service is listed under *Equipments Tab > Computers > Huygens Deconvolution Computer*.
 
 <img src="pics/huygens_deconvolution/huygens_1_access.png" width="500">
 
 * Open Microsoft Remote Desktop.
 
-> *Note that you have to connected to the CBG internal network in order to access the remote desktop. If you are working from an external network, connect to CBG network using a VPN.* 
+>*CBG network*<br>
+>*Login required*
 
 * (a) Select the PCs tab and click on the *Add PC* button on the main window. Alternatively, one can also click on the '+' button on the top menu bar and select *Add PC*.
 * (b) Enter the details.
 	* PC Name: huygens-srv1.mpi-cbg.de
-	* User account: In drop-down menu, select *Add User Account* and enter relevant credentials. To get the username and password, *contact [us](mailto:ipf@mpi-cbg.de)!*
+	* User account: In drop-down menu, select *Add User Account* and enter relevant credentials.
 	* Click on *Add* button at bottom right.  
 
 <table>
@@ -74,7 +134,7 @@ TODO
 <img src="pics/huygens_deconvolution/huygens_2_mainwindow.png" width="400">
 
 * Main sections:
-   * The blue region is where you will find the thumbnails of all the opened images. 
+   * The blue region is where you will find the thumbnails of opened images and of  processed results.
    * On the top, is a task bar, with icons to launch main functions such as deconvolution (*Decon*) and batch processing (*Batch Express*).
    * On the right, the window with multiple tabs gives you information related to the currently selected image. 
 
@@ -134,7 +194,7 @@ TODO
 * (a) Here you can edit the general imaging parameters.
 * The most important parameters are the *Sampling Intervals* which have be in a proper range for deconvolution to be possible.
 
-> *Use the [Nyquist Calculator](https://svi.nl/Nyquistcalculator) before your image acquisition to get the sampling limits for your experiment.* 
+> *Use the [Nyquist Calculator](https://svi.nl/Nyquistcalculator) before your image acquisition to get the sampling limits for your experiment.* <br>
 
 * (b) Here you can specify the microscope type as well as the excitation and emission wavelength for each acquired channel.
 
@@ -181,24 +241,45 @@ TODO
 * Check if the parameters are correct and click on *Enter wizard*.
 
 ### Step 6a: Deconvolution wizard: PSF selection
-TODO
+* Huygens supports both measured and theoretical PSF. 
 
+> *For thick samples, it is recommended to use theoretical PSF.* <br>
+> *For badly aligned microscopes, better to use measured PSF.*
+
+* In you want to use a measured PSF, the following steps apply, **before launching the deconvolution wizard.**
+	* Acquire fluorescent bead images with the same acquisition settings as your raw data.
+> *Use the same z-sampling or slightly higher (=more slices/um) than the biological experiment.*
+
+	* Go to *Deconvolution > PSF Distiller Wizard* tool to compute the PSF from your bead image. 
+	* Once you finish, you will find a new thumbnail of the PSF in the main window.
+	* Launch the *Deconvolution Wizard*.
+	* At the *PSF Selection* step, choose *Import from main window* and select your PSF image.
+
+<img src="pics/huygens_deconvolution/huygens_6a_importpsf.png" width="400">
+
+* To let Huygens calculate the PSF from your image parameters (theoretical PSF), simply press *Next* (--->).
+
+> *Calculated PSF works well and is recommended.*
+
+<img src="pics/huygens_deconvolution/huygens_6a_psfselection.png" width="400">
+
+**Tip**: To know more about PSF and PSF distiller, visit [Huygens Webpage](https://svi.nl/Huygens-PSF-Distiller).
 
 ### Step 6b: Deconvolution wizard: Cropping
 * Crop the 3D stack manually by using the *Launch the Cropper* option. 
 
-> *The time needed to deconvolve an image increases more than proportionally with its volume.* <br>
+> *The time needed to deconvolve an image increases proportionally with its volume.* <br>
 > *Cropping helps to accelerate the process.*
 
 <img src="pics/huygens_deconvolution/huygens_6b_launchcropper.png" width="400">
 
 * Alternatively, one can also use the *Auto crop* to let Huygens automatically detect a suitable region of interest.
-* In the pop-up window, set the region of interest by adjusting the boundaries of the bounding box.
+* If you launched the *Cropper*, set the region of interest by adjusting the boundaries of the bounding box.
 * Press on *Crop* on the bottom right of the window.
 
 <img src="pics/huygens_deconvolution/huygens_6b_cropper.png" width="400">
 
-* Press *Next* (--->).
+* Press *Next*.
 
 ### Step 6c: Deconvolution wizard: Select channel
 * If you have more than one channel in your dataset, you will need to deconvolve them sequentially.
@@ -278,7 +359,7 @@ TODO
 * Adjust the *SNR* value.
 * For the others, the defaults are set according to the image parameters and require no adjustments.
 
-**Tip 1**: Check the [Huygens page](https://svi.nl/SignalToNoiseRatio) for more details.
+**Tip**: Check the [Huygens page](https://svi.nl/SignalToNoiseRatio) for more details.
 
 ### Step 6h: Deconvolution wizard: Preview and deconvolution
 * Use the *Deconvolution preview* to check the results of current deconvolution parameters.
@@ -317,7 +398,6 @@ TODO
 
 <img src="pics/huygens_deconvolution/huygens_6j_deconvolutionresults.png" width="400">
 
-* The deconvolved images are added as additional channels to the original image.
 * Leave at default and click *Next*.
 
 ### Step 6k: Deconvolution wizard: Summary
@@ -337,9 +417,12 @@ TODO
 * If you clicked *Done* in the previous step, you will return to the main window where you will see a new image thumbnail of the deconvolution result.
 * Right-click on the thumbnail and select *Twin Slicer*.
 
-<img src="pics/huygens_deconvolution/huygens_6l_exploreresults.png" width="400">
+<img src="pics/huygens_deconvolution/huygens_6l_launchtwinslicer.png" width="400">
 
 * Use the drop-down menu to select your raw dataset on the left and deconvolved dataset on the right.
+
+<img src="pics/huygens_deconvolution/huygens_6l_exploreresults.png" width="400">
+
 * Compare the deconvolution result with the raw dataset.
 
 ### Step 6m: Saving your results
@@ -364,19 +447,26 @@ TODO
 **Tip**: Check the [Huygens webpage](https://svi.nl/TiffScaling) for more details on saving images as TIFF.
 
 ### Step 7: Quit Huygens
-* Quit Huygens after usage by *File > Quit*.
+* Quit Huygens after usage by *File > Quit*. 
 
 ### Step 8: Logout
 * Once you quit Huygens, you will return to the desktop of the remote machine.
-* **Do not shutdown the computer**.
+* **Do not shut-down the computer**.
 * Safely logout from the system using the ***drop-down next to the power button*** *> lmfuser > Log out*.
 
 <img src="pics/huygens_deconvolution/huygens_8_logout.png" width="400">
 
+## Tips & Tricks
+* Use the [Huygens WIKI](https://svi.nl/Huygens-Imaging-Academy) for details on various topics. The pages are also linked above wherever required.
 
 ## Alternatives
-List some alternative softwares, troubleshooting tips etc. if applicable
+ImageJ/ FIJI plugins
 
-# Various page writing tips
-* If an image is too large, specify its size with html import (see start page)
-##### **If using header 4 (####), make explicitely bold, otherwise poorly visible**
+* [**DeconvolutionLab2**](http://bigwww.epfl.ch/deconvolution/deconvolutionlab2/)
+* [**DeconvolutionLab**](http://bigwww.epfl.ch/deconvolution/deconvolutionlab1/) 
+
+Proprietary software
+
+* [**Imaris**](https://imaris.oxinst.com/products/imaris-single-full)
+* [**Volocity**](https://quorumtechnologies.com/volocity/volocity/suite)
+

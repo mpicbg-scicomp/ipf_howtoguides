@@ -42,8 +42,23 @@ It is written by the [Scientific Computing Facility](https://www.mpi-cbg.de/serv
 <tbody>
   <tr align="center" valign="top"> 
      <td> 	<!-- row 1, column 1 -->
-	 <a href="guides/Ilastik_PixelClassification">Pixel Classification <br>(Image segmentation)</a> <br> <br>
+	 <a href="guides/Ilastik_PixelClassification">Pixel Classification<br>(Image segmentation)</a> <br> <br>
 	<img src="guides/pics/mainpage/ilastik_pixelclassification_preview.png" width="100"> <br>
+	</td>
+	<td></td>
+	<td></td>
+
+  </tr>
+</tbody>
+</table>
+
+## Huygens 
+<table>
+<tbody>
+  <tr align="center" valign="top"> 
+     <td> 	<!-- row 1, column 1 -->
+	 <a href="guides/Huygens_Deconvolution">Deconvolution<br>(Image restoration)</a> <br> <br>
+	<img src="guides/pics/mainpage/huygens_deconvolution_preview.jpg" width="100"> <br>
 	</td>
 	<td></td>
 	<td></td>

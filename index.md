@@ -2,7 +2,7 @@
 {: .no_toc }
 
 This page collects How-To guides for common image processing and analysis tasks.
-It is written by the [Scientific Computing Facility](https://www.mpi-cbg.de/services-facilities/core-facilities/scientific-computing-facility/service-portfolio-overview/) at the MPI-CBG. If you have any questions or further ideas what guides to add just [contact us](https://www.mpi-cbg.de/services-facilities/core-facilities/scientific-computing-facility/service-portfolio-overview/).
+It is written by the [Scientific Computing Facility](https://www.mpi-cbg.de/services-facilities/core-facilities/scientific-computing-facility/service-portfolio-overview/) at the MPI-CBG. If you have any questions or further ideas what guides to add just [contact us](mailto:ipf@mpi-cbg.de).
 
 
 ## Table of contents
@@ -57,7 +57,7 @@ It is written by the [Scientific Computing Facility](https://www.mpi-cbg.de/serv
 <tbody>
   <tr align="center" valign="top"> 
      <td> 	<!-- row 1, column 1 -->
-	 <a href="guides/Huygens_Deconvolution">Deconvolution<br>(Image restoration)</a> <br> <br>
+	 <a href="guides/Huygens_Deconvolution">Deconvolution with HuygensPro<br>(Image restoration)</a> <br> <br>
 	<img src="guides/pics/mainpage/huygens_deconvolution_preview.png" width="100"> <br>
 	</td>
 	<td></td>

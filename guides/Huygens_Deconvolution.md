@@ -9,9 +9,9 @@ Huygens
 {:toc}
 
 ## Introduction
-Optical systems like microscopes produce images that are not perfect but degraded by blur and noise. Technically, the blur is the result of a **convolution** of the "ideal" image with the so called point spread function.
+Optical systems like microscopes produce images that are not perfect but degraded by blur and noise. Technically, the blur is the result of a **convolution** of the "ideal" image with the so-called point spread function.
 
-The **point spread function (PSF)** is the 3D image produced by a point-like source. Its shape and size depends on the microscope type, wavelength, objective, refractive index of immersion and sample medium etc. The PSF can be measured experimentally with sub-resolution beads or be calculated.
+The **point spread function (PSF)** is the 3D image produced by a point-like source. Its shape and size depend on the microscope type, wavelength, objective, refractive index of immersion and sample medium etc. The PSF can be measured experimentally with sub-resolution beads or be calculated.
 
 **Deconvolution** is an image restoration process that recovers an image which was degraded by convolution. It inverts the convolution process. 
 For more details on deconvolution also see the [documentation from Huygens](https://svi.nl/Huygens-Deconvolution).
@@ -25,11 +25,11 @@ Deconvolution **increases image quality and image resolution**. It improves cont
 
 #### **Features of Huygens at CBG**
 {: .no_toc } 
-* Currently licenses are available for deconvolution of images acquired with **confocal, spinning disk, widefield** systems. 
+* Currently, licenses are available for deconvolution of images acquired with **confocal, spinning disk, widefield** systems. 
 * Two versions of Huygens are available:
   * **HuygensPro**: GUI-based, useful for exploration of new data
   * **Huygens Remote Manager**: browser-based, useful for batch processing 
-* HuygensPro (content of this how-to guide) is installed on a linux server and can be accessed remotely from your own laptop.
+* HuygensPro (the content of this how-to guide) is installed on a Linux server and can be accessed remotely from your laptop.
 
 ### Requirements for accessing HuygensPro
 {: .no_toc } 
@@ -49,7 +49,7 @@ The step-by-step section is split into (1) data acquisition, (2) data transfer (
 
 ## 1. Data acquisition
 * Correct data acquisition is very important for good deconvolution.
-* General rule of thumb: **give more importance to sampling than signal**, i.e. noise is acceptable but not undersampling.
+* A general rule of thumb: **give more importance to sampling than signal**, i.e. noise is acceptable but not undersampling.
 * If you plan to use measured PSF, make sure to acquire fluorescent bead images as well.
 
 #### **General guidelines**
@@ -66,7 +66,7 @@ The step-by-step section is split into (1) data acquisition, (2) data transfer (
 * **No saturation and clipping**
 	* Avoid saturating your image, the image does not have to look pretty!
 * **Metadata**
-	* Save the image in a format that keeps all the meta data.
+	* Save the image in a format that keeps all the metadata.
 	* Use sufficiently high bit depth (typically 16-bit).
 
 #### **Deconvolution is not possible if:**
@@ -120,8 +120,8 @@ The step-by-step section is split into (1) data acquisition, (2) data transfer (
 * (a) Select the PCs tab and click on the *Add PC* button on the main window. Alternatively, one can also click on the '+' button on the top menu bar and select *Add PC*.
 * (b) Enter the details.
 	* PC Name: huygens-srv1.mpi-cbg.de
-	* User account: In drop-down menu, select *Add User Account* and enter relevant credentials (obtained from IPF).
-	* Click on *Add* button at bottom right.  
+	* User account: In the drop-down menu, select *Add User Account* and enter relevant credentials (obtained from IPF).
+	* Click on *Add* button at the bottom right.  
 
 <table>
 <tbody>
@@ -148,8 +148,8 @@ The step-by-step section is split into (1) data acquisition, (2) data transfer (
 <img src="pics/huygens_deconvolution/huygens_2_mainwindow.png" width="400">
 
 * Main sections:
-   * The blue region is where you will find the thumbnails of opened images and of  processed results.
-   * On the top is a task bar with icons to launch main functions such as deconvolution (*Decon*) and batch processing (*Batch Express*).
+   * The blue region is where you will find the thumbnails of opened images and processed results.
+   * On the top is a taskbar with icons to launch main functions such as deconvolution (*Decon*) and batch processing (*Batch Express*).
    * On the right, the window with multiple tabs gives you information related to the currently selected image. 
 
 <img src="pics/huygens_deconvolution/huygens_2_mainwindowannotated.png" width="400">
@@ -158,7 +158,7 @@ The step-by-step section is split into (1) data acquisition, (2) data transfer (
 ### Step 3: Open an image file
 {: .no_toc } 
 * (a) Click on the *Open* button to open an image. Alternative: *File > Open*
-   * (b) On opening an LSM image, Huygens will ask for the micoscope model used for imaging. Select the one you used for image acquisition; contact the LMF if you are not sure.
+   * (b) On opening an LSM image, Huygens will ask for the microscope model used for imaging. Select the one you used for image acquisition; contact the LMF if you are not sure.
    * (c) On opening a TIF series, Huygens will ask how to interpret the individual files. Such as slices from a 3D stack, channels or time points.
 
 <table>
@@ -175,7 +175,7 @@ The step-by-step section is split into (1) data acquisition, (2) data transfer (
 
 ### Step 4: Inspect your image
 {: .no_toc } 
-* After opening a file, you should find a new image thumbnail in the main work space.
+* After opening a file, you should find a new image thumbnail in the main workspace.
 
 <img src="pics/huygens_deconvolution/huygens_4_imagethumbnail.png" width="400">
 
@@ -183,7 +183,7 @@ The step-by-step section is split into (1) data acquisition, (2) data transfer (
 * Once you select:
    * the right window is updated with the image histogram and other information, and
    * the windows on the left show multiple renderings of the selected image. 
-* Right click on the thumbnail and select *2D Visualization > Slicer*. Alternative: *Visualization > Slicer*
+* Right-click on the thumbnail and select *2D Visualization > Slicer*. Alternative: *Visualization > Slicer*
 * The *Slicer* view which allows you to check if the data was imported properly.
 
 <img src="pics/huygens_deconvolution/huygens_4_slicerview.png" width="400">
@@ -191,7 +191,7 @@ The step-by-step section is split into (1) data acquisition, (2) data transfer (
 * There are controls to select any plane orientation in space (XY, YZ, XZ), zoom, scroll through slices, and view time frames (if applicable).
 * Check if the image shows misalignment across the channels in case of multichannel image (chromatic aberration) or drift in Z for 3D time series.
 
-> *Chromatic aberration can be corrected in Huygens using the menu Deconvolution Chromatic Aberration Corrector.*<br>
+> *Chromatic aberration can be corrected in Huygens using the menu Deconvolution > Chromatic Aberration Corrector.*<br>
 > *The z-drift corrector tool is available as a part of deconvolution post-process for 3D time-series.*
 
 **Tip**: If the image dimensions are not loaded correctly (for example, channels are read as slices) use the option *Tools > Convert* to set the right dimensions.
@@ -212,10 +212,10 @@ The step-by-step section is split into (1) data acquisition, (2) data transfer (
 * (a) Here you can edit the general imaging parameters.
 * (b) Here you can specify the microscope type as well as the excitation and emission wavelength for each acquired channel.
 
-> *For a bandpass emission filter you can use the center wavelength.*<br>
-> *Multiphoton images: select Widefield and set the Multi photon excitation to 2.*<br>
-> *For standard microscopes the Excitation fill factor = 2 or higher.*<br>
-> *For confocal microscope data the Backprojected pinhole (nm) should be calculated correctly from the metadata (but double-check!).*<br>
+> *For a bandpass emission filter, you can use the center wavelength.*<br>
+> *Multiphoton images: select Widefield and set the Multiphoton excitation to 2.*<br>
+> *For standard microscopes, the Excitation fill-factor = 2 or higher.*<br>
+> *For confocal microscope data, the Backprojected pinhole (nm) should be calculated correctly from the metadata (but double-check!).*<br>
 
 * (c) Here you can find the summary of your image data. 
 
@@ -248,8 +248,8 @@ The step-by-step section is split into (1) data acquisition, (2) data transfer (
 
 <img src="pics/huygens_deconvolution/huygens_6_launchdeconwizard.png" width="400">
 
-* On the start window of the wizard, you can see a summary of the previously defined paramaters. 
-* The *Wizard status* window shows current status, warnings, etc.
+* On the start window of the wizard, you can see a summary of the previously defined parameters. 
+* The *Wizard status* window shows the current status, warnings, etc.
 
 <img src="pics/huygens_deconvolution/huygens_6_deconwizardstart.png" width="400">
 
@@ -262,7 +262,7 @@ The step-by-step section is split into (1) data acquisition, (2) data transfer (
 > *For thick samples, it is recommended to use theoretical PSF.* <br>
 > *For badly aligned microscopes, better to use measured PSF.*
 
-* This how-to-guide uses a calculated PSF. If you want to use a measured PSF it needs to be acquired and prepared before launching the deconvolution wizard. See section at the end of this page for a brief summary.
+* This how-to-guide uses a calculated PSF. If you want to use a measured PSF it needs to be acquired and prepared before launching the deconvolution wizard. See the section at the end of this page for a summary.
 
 <img src="pics/huygens_deconvolution/huygens_6a_importpsf.png" width="400">
 
@@ -316,7 +316,7 @@ The step-by-step section is split into (1) data acquisition, (2) data transfer (
 > *A tall peak on the extreme right of the histogram indicates clipping or saturation.* <br>
 > *Clipping occurs when input signals that are too high and are mapped to the highest possible value* <br>
 > *A tall peak on the very left of the histogram also indicates clipping, here the negative input signals are mapped to zero.* <br>
-> *There can also be an offset at the left of the histogram indicating a positive blacklevel. This does not affect the deconvoluton results.* <br>
+> *There can also be an offset at the left of the histogram indicating a positive black-level. This does not affect the deconvolution results.* <br>
 
 **Tip 1**: Save images as 16-bit to avoid clipping. 
 
@@ -385,14 +385,14 @@ The step-by-step section is split into (1) data acquisition, (2) data transfer (
 
 <img src="pics/huygens_deconvolution/huygens_6h_deconvolutionpreview.png" width="400">
 
-* You can move the box around to check the deconvolution preview from diffrent regions.
+* You can move the box around to check the deconvolution preview from different regions.
 
 > *Check for artifacts. If seen, reduce the SNR and test the preview again.* <br>
-> *If there is hardly any change in contrast, increase the SNR and run the preview.*
+> *If there is hardly any change in the contrast, increase the SNR and run the preview.*
 
 * If the preview looks good, click *Deconvolve*. This will start the deconvolution of the active channel.
 
-**Tip**: The SNR should be seen as tunable parameter. The default is microscope-specific and a good start. But try different SNRs (10, 20, 40, 50), check the results and select the SNR which improves sharpness without enhancing noise.
+**Tip**: The SNR should be seen as a tunable parameter. The default is microscope-specific and a good start. But try different SNRs (10, 20, 40, 50), check the results and select the SNR which improves sharpness without enhancing noise.
 
 ### Step 6i: Deconvolution wizard: Deconvolution result
 {: .no_toc } 
@@ -456,7 +456,7 @@ The step-by-step section is split into (1) data acquisition, (2) data transfer (
 
 <img src="pics/huygens_deconvolution/huygens_6m_savequestion.png" width="400">
 
-* Depending on the choosen file format and the intensities in your data, Huygens might also ask about the conversion mode.
+* Depending on the chosen file format and the intensities in your data, Huygens might also ask about the conversion mode.
 
 > *Contrast stretch: good for visualization purposes and further analysis such as colocalization* <br>
 > *Linked scale: use if you plan to perform ratiometric analysis.*
@@ -473,30 +473,29 @@ The step-by-step section is split into (1) data acquisition, (2) data transfer (
 {: .no_toc } 
 * Once you quit Huygens, you will return to the desktop of the remote machine.
 * **Do not shut-down the computer**.
-* Safely logout from the system using the ***drop-down next to the power button*** *> lmfuser > Log out*.
+* Safely log out from the system using the ***drop-down next to the power button*** *> lmfuser > Log out*.
 
 <img src="pics/huygens_deconvolution/huygens_8_logout.png" width="400">
 
 ## Comment: Experimental PSF
 Acquiring an experimental PSF can be useful, especially for badly aligned microscopes.
 <br>
-Brief summary of the required steps:
+A summary of the required steps:
+
 * Acquire images of fluorescent sub-resolution beads. Use the identical conditions and acquisition settings as for your raw data.
 * Open the bead images in HuygensPro.
 * Go to *Deconvolution > PSF Distiller Wizard* tool to compute the PSF from your bead image. 
 * Once you finish, you will find a new thumbnail of the PSF in the main window.
 * Launch the *Deconvolution Wizard*.
-* At the *PSF Selection* step, choose *Import from main window* and select your PSF image.
+* At the *PSF Selection* step, choose *Import from the main window* and select your PSF image.
 
 **Tip**: To know more about PSF and PSF distiller, visit [Huygens Webpage](https://svi.nl/Huygens-PSF-Distiller).
-
 
 ## Tips & Tricks
 * The **[Huygens WIKI](https://svi.nl/Huygens-Imaging-Academy)** provides good and extensive documentation for deconvolution. Contact [IPF](mailto:ipf@mpi-cbg.de) if a login is required.
 
 ## Alternative Software
-A non exhaustive list:
-
+A non-exhaustive list:
 
 ImageJ/ FIJI plugins
 

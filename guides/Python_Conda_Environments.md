@@ -95,13 +95,13 @@ Your collaborator can then create such an environment like this:
 conda env create -f environment.yml
 ```
 
+After entering this environment, the collaborator can execute your python script with the same libraries installed as you had.
 
 **Tip**: You can list your available / installed enviroments like this:
 
 ```
 conda env list
 ```
-
 
 ![](pics/python_conda_environments/env_list.png)
 

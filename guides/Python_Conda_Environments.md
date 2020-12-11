@@ -1,7 +1,7 @@
 # Python / Conda Environments
 {: .d-inline-block }
 
-Fiji/Imaris/Ilastik 
+Python
 {: .label .label-green }
 
 

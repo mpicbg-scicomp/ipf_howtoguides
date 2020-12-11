@@ -67,6 +67,22 @@ It is written by the [Scientific Computing Facility](https://www.mpi-cbg.de/serv
 </tbody>
 </table>
 
+
+## Python 
+<table>
+<tbody>
+  <tr align="center" valign="top"> 
+     <td> 	<!-- row 1, column 1 -->
+	 <a href="guides/Python_Conda_Environments">Image analysis with Python<br>and Conda environments</a> <br> <br>
+	<img src="guides/pics/mainpage/create_env.png" width="100"> <br>
+	</td>
+	<td></td>
+	<td></td>
+
+  </tr>
+</tbody>
+</table>
+
 ## Imaris
 ... still coming ...
 

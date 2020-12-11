@@ -1,0 +1,20 @@
+# Load an image using scikit-image
+from skimage.io import imread
+image = imread('https://samples.fiji.sc/blobs.png')
+
+# automatically determine a threshold for processing it
+from skimage import filters
+threshold = filters.threshold_otsu(image)
+
+# apply the threshold
+thresholded_image = image >= threshold
+
+# run connected components analysis to label all blobs with individual numbers
+from skimage import measure
+label_image = measure.label(thresholded_image)
+
+# count objects by determining the maximum label
+import numpy as np
+number_of_labels = np.max(label_image)
+
+print("Number of labels: " + str(number_of_labels));

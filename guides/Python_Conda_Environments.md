@@ -15,8 +15,8 @@ It is also available as [online lecture](https://youtu.be/MOEPe9TGBK0).
 ## Step-by-step
 Using Python for data analysis poses additional opportunities in the context of reproducible science and good scientific practice.
 It is possible to fully document analysis workflows ranging from loading a raw microscopy image, its processing, statistical analysis, to plotting.
-As a data scientists, you will use many software tools and libraries for analysing and visualising data. 
-In to allow others to reproduce your workflow, the tools used and their software versions must be documented in detail. 
+As a data scientist, you will use many software tools and libraries for analysing and visualising data. 
+To allow others to reproduce your workflow, the tools used and their software versions must be documented in detail. 
 Therefore, it is necessary to follow some general guidelines.
 
 ### Step 0: Install your Python/Conda environment
@@ -38,22 +38,22 @@ After installation, you can start conda from the terminal or command line like t
 conda activate
 ```
 
-You will then see the term `(base)` at the beginning of each line:
+You will then see the term `(base)` at the beginning of every line:
 
 ![](pics/python_conda_environments/base_env.png)
 
 ### Step 2: Creating a conda environment
-You can create a conda environment with this command:
+You can create a new conda environment, e.g. called "env_exercise_9" with this command:
 ```
 conda create ––name env_exercise_9
 ```
 
-In some projects, you may want to start using python right away. Thus, yuo can specify to install python in a given version to your new conda environment from the start:
+In some projects, you may want to start using python right away. Thus, you can specify to install python with a given version to your new conda environment from the start:
 ```
 conda create -n env_exercise_9 python=3.8
 ```
 
-And afterwards you can enter the environment like that:
+And afterwards you can start using that environment with this command:
 ```
 conda activate env_exercise_9
 ```
@@ -90,11 +90,11 @@ You can summarize your conda environment in a text file like this:
 conda env export > environment.yml
 ```
 
-The resulting [environment.yml](pics/python_conda_environments/environment.png) contains information about your environment and can be share with collaborators:
+The resulting [environment.yml](pics/python_conda_environments/environment.png) contains information about your environment and can be shared with collaborators:
 
 ![](pics/python_conda_environments/environment.png)
 
-Your collaborator can then create such an environment like this:
+Your collaborator can then create a conda environemnt with the same libraries as in your conda environment like this:
 
 ```
 conda env create -f environment.yml

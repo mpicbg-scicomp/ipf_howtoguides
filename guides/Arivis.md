@@ -10,7 +10,7 @@ Arivis Pro is your modular software for multi-channel 2D, 3D and 4D images of al
 Arivis provides a variety of built-in pipelines for segmentation, colocalisation, spot detection and so on. The software also provides a robust option to integrate python scripts to your pipeline in Arivis. It also support training a machine learning model using the annotations that can be created on the Apeer platform (directly embedded within the software). The DL models like Stardist and Cellpose can also directly be integrated to the pipelines. Retraining of these models cannot be done within the software, should be done outside the software and then have to be integrated to the pipeline here.
 
 
-**Tip**: Arivis is installed in LIPS8. You can access it directly or via remote connection
+**Tip**: Arivis is installed in LIPS8 and LIPS11. You can access it directly or via remote connection
 
 
 ![](pics/zeiss-arivis-pro-product-0724 copy.jpg)

@@ -13,6 +13,8 @@ Arivis provides a variety of built-in pipelines for segmentation, colocalisation
 **Tip**: Arivis is installed in LIPS8. You can access it directly or via remote connection
 
 
+![](pics/zeiss-arivis-pro-product-0724 copy.jpg)
+
 ## Step-by-step
 
 The example data is a 3D image z stack of the bone region in the skull acquired with Confocal microscope. 

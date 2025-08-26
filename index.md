@@ -83,6 +83,22 @@ It is written by the [Scientific Computing Facility](https://www.mpi-cbg.de/serv
 </tbody>
 </table>
 
+
+## Arivis 
+<table>
+<tbody>
+  <tr align="center" valign="top"> 
+     <td> 	<!-- row 1, column 1 -->
+	 <a href="guides/Arivis">Image analysis with Arivis</a> <br> <br>
+	 <img src="guides/pics/mainpage/Arivis_image.png" width="100"> <br>
+	</td>
+	<td></td>
+	<td></td>
+
+  </tr>
+</tbody>
+</table>
+
 ## Imaris
 ... still coming ...
 

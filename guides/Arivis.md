@@ -13,7 +13,7 @@ Arivis provides a variety of built-in pipelines for segmentation, colocalisation
 **Tip**: Arivis is installed in LIPS8 and LIPS11. You can access it directly or via remote connection
 
 
-![](pics/zeiss-arivis-pro-product-0724 copy.jpg)
+<img src="pics/zeiss-arivis-pro-product-0724 copy.jpg" width="400">
 
 ## Step-by-step
 
